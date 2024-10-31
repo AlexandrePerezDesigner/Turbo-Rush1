@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbo Rush</title>
+    <style>
+        @font-face {
+            font-family: 'DIN';
+            src: url('Caminho/para/sua/fonte/DIN.otf'); /* Substitua com o caminho correto */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('./imgs/pista2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'DIN', sans-serif;
+        }
+
+        #inicioTela {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #303030;
+            z-index: 10;
+        }
+
+        #acelerarBtn {
+            width: 182px; /* Largura do botão */
+            height: 58px; /* Altura do botão */
+            background-image: url('./imgs/acelerar.png'); /* Imagem inicial */
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #acelerarBtn:hover {
+            background-image: url('./imgs/acelerar2.png'); /* Troca para acelerar2.png no hover */
+            top: 49.9%;
+        }
+
+        #bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #introVideo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 20;
+            display: none;
+        }
+
+        h1 {
+            font-family: 'DIN', sans-serif;
+        }
+
+        #saturationOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #6ebbc7;
+            opacity: 0.4;
+            mix-blend-mode: saturation;
+            pointer-events: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="inicioTela">
+        <img src="./imgs/cover.png" alt="cover" style="width: 100%; height: 100%; object-fit: cover;">
+        <div id="acelerarBtn" alt="Acelerar"></div> <!-- Alterado para <div> -->
+    </div>
+
+    <canvas id="jogoCanvas" width="900" height="1080"></canvas>
+
+    <video id="bgVideo" autoplay loop muted>
+        <source src="./imgs/pista-infinita.mp4" type="video/mp4">
+    </video>
+
+    <video id="introVideo" src="./imgs/anima-intro.mp4" muted></video>
+
+    <img id="rastro" src="./imgs/rastro1.gif" alt="Rastro do carro" style="position: absolute; display: none; width: 80px; height: 72px;">
+
+    <div id="saturationOverlay"></div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
